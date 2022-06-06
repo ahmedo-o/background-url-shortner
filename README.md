@@ -3,7 +3,7 @@ An easy to use url shortner that runs in the background and uses TinyURL API.
 
 # How to use
 
-# 1. configure
+# 1. configure .env
 
 ```env
 AUTH_TOKEN = '' # Your tinyurl auth token
