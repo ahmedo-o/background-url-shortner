@@ -17,10 +17,13 @@ def shorten_link():
 
     try:
         if short_url['error']:
-            notifier.show_toast(TOAST_TITLE, short_url['error']['message'], ICON_PATH, 5)
+            notifier.show_toast(
+                TOAST_TITLE, short_url['error']['message'], ICON_PATH, 5)
     except:
-        notifier.show_toast(TOAST_TITLE, 'Sucess! Shortened URL has been copied to your clipboard', ICON_PATH, 5)
+        notifier.show_toast(
+            TOAST_TITLE, 'Sucess! Shortened URL has been copied to your clipboard', ICON_PATH, 5)
         pyperclip.copy(short_url['url'])
+
 
 keyboard.add_hotkey(HOTKEY, shorten_link)
 keyboard.wait()
