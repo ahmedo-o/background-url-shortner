@@ -1,7 +1,7 @@
 import keyboard
 import pyperclip
 from env_loader import HOTKEY, TOAST_TITLE, ICON_PATH
-from URLShortner import URLShortner
+from tinyurl import TinyURL
 from win10toast import ToastNotifier
 
 notifier = ToastNotifier()
@@ -12,8 +12,8 @@ def shorten_link():
     if not content:
         return
 
-    shortner = URLShortner()
-    short_url = shortner.shorten_url(content)
+    shortner = TinyURL(content)
+    short_url = shortner.shorten_url()
 
     try:
         if short_url['error']:
