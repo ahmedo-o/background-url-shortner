@@ -1,10 +1,8 @@
 import keyboard
 import pyperclip
-from env_loader import HOTKEY, TOAST_TITLE, ICON_PATH
 from tinyurl import TinyURL
-from win10toast import ToastNotifier
-
-notifier = ToastNotifier()
+from toast import show_toast
+from env_loader import CHANGE_HOTKEY_HOTKEY, HOTKEY, QUIT_HOTKEY
 
 
 def shorten_link():
@@ -17,13 +15,18 @@ def shorten_link():
 
     try:
         if short_url['error']:
-            notifier.show_toast(
-                TOAST_TITLE, short_url['error']['message'], ICON_PATH, 5)
+            show_toast(short_url['error']['message'])
     except:
-        notifier.show_toast(
-            TOAST_TITLE, 'Sucess! Shortened URL has been copied to your clipboard', ICON_PATH, 5)
+        show_toast('Sucess! Shortened URL has been copied to your clipboard')
         pyperclip.copy(short_url['url'])
 
 
+def change_hotkey():
+    pass
+
+
 keyboard.add_hotkey(HOTKEY, shorten_link)
-keyboard.wait()
+keyboard.add_hotkey(CHANGE_HOTKEY_HOTKEY, change_hotkey)
+keyboard.wait(QUIT_HOTKEY)
+
+show_toast('Exiting...')
