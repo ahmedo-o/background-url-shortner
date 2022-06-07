@@ -17,11 +17,11 @@ def shorten_link():
         if short_url['error']:
             show_toast(short_url['error']['message'])
     except:
-        show_toast('Sucess! Shortened URL has been copied to your clipboard')
         pyperclip.copy(short_url['url'])
+        show_toast('Sucess! Shortened URL has been copied to your clipboard')
 
 
-def change_hotkey():
+def change_hotkey(): # will add soon
     pass
 
 
