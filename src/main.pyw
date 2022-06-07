@@ -20,8 +20,8 @@ def shorten_link():
         pyperclip.copy(short_url['url'])
         show_toast('Sucess! Shortened URL has been copied to your clipboard')
 
-
-def change_hotkey(): # will add soon
+# will add soon
+def change_hotkey():
     pass
 
 
