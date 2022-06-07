@@ -1,6 +1,3 @@
-import win10toast
-
-
 from win10toast import ToastNotifier
 from env_loader import TOAST_TITLE, ICON_PATH
 
